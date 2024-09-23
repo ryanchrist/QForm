@@ -1,6 +1,6 @@
 #' Fast CDF/PDF of a Quadratic Form in Gaussians
 #'
-#' Returns the CDF and PDF for random variables \eqn{T_f}{T_f} of the form \deqn{T_f = \sum\limits_i f\left(\eta_i \right) \left(Z_i + \delta_i)^2 + \sigma Z_0}{T_f = \Sigma_i f (\eta_i) (Z_i + \delta_i)^2 + \sigma Z_0} where \eqn{Z_i \sim N(0,1).}{Z_i ~ N(0,1).}
+#' Returns the CDF and PDF for random variables \eqn{T_f}{T_f} of the form \deqn{T_f = \sum\limits_i f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2 + \sigma Z_0}{T_f = \Sigma_i f (\eta_i) (Z_i + \delta_i)^2 + \sigma Z_0} where \eqn{Z_i \sim N(0,1).}{Z_i ~ N(0,1).}
 #'
 #' By using the fast Fourier transform and various adjustments for numerical precision, this function is faster and more reliable than Davie's method and related approaches, especially when the returned CDF or PDF is to be evaluated at many points.
 #'
