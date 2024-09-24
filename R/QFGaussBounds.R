@@ -99,10 +99,10 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
 
       nu <- 8*(sum.etasq.deltasq + (log(4)-1)*sum.etasq)
 
-      conc.ineqs <- QForm:::WrapConcIneq.identity(sum.eta.deltasq + sum.eta,
-                                                  sum.eta.deltasq + sum.eta,
-                                                  nu,
-                                                  1/(4*max.abs.eta))
+      conc.ineqs <- WrapConcIneq.identity(sum.eta.deltasq + sum.eta,
+                                          sum.eta.deltasq + sum.eta,
+                                          nu,
+                                          1/(4*max.abs.eta))
       saddlepoint.coeff <- 1/sqrt(2*pi*nu)
 
     }else{
