@@ -36,7 +36,7 @@ QFGaussBounds(
 A vectorized function which evaluates upper and lower bounds on the CDF of \eqn{Q_f}.
 }
 \description{
-Returns a function for calculating upper and lower bounds on the CDF for random variables \eqn{Q_f = T_f + R_f} where \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) \left(Z_i + \delta_i)^2,}{T_f = \Sigma_{i \in T} f (\eta_i) (Z_i + \delta_i)^2,}
+Returns a function for calculating upper and lower bounds on the CDF for random variables \eqn{Q_f = T_f + R_f} where \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{T_f = \Sigma_{i \in T} f (\eta_i) (Z_i + \delta_i)^2,}
 \deqn{R_f = \sum\limits_{i \in \mathcal{R}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{R_f = \Sigma_{i \in R} f (\eta_i) (Z_i + \delta_i)^2,} where \eqn{Z_i \sim N(0,1)}{Z_i ~ N(0,1)}, and only the CDF of \eqn{T_f} is known.
 }
 \details{

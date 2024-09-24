@@ -6,8 +6,8 @@
 \title{QForm: A package for fast, safe screening with p-value bounds for quadratic forms.}
 \description{
 Initially motivated by genome-wide association studies (GWAS), QForm is aimed at obtaining upper and lower bounds on p-values for test statistics with a limiting distribution of the form
-of \eqn{Q_f = T_f + R_f}.  Here \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) \left(Z_i + \delta_i)^2,}{T_f = \Sigma_{i \in T} f (\eta_i) (Z_i + \delta_i)^2,}
-\deqn{R_f = \sum\limits_{i \in \mathcal{R}} f\left(\eta_i \right) \left(Z_i + \delta_i)^2,}{R_f = \Sigma_{i \in R} f (\eta_i) (Z_i + \delta_i)^2,} where \eqn{Z_i \sim N(0,1)}{Z_i ~ N(0,1)}, and only the CDF of \eqn{T_f} is known.
+of \eqn{Q_f = T_f + R_f}.  Here \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{T_f = \Sigma_{i \in T} f (\eta_i) (Z_i + \delta_i)^2,}
+\deqn{R_f = \sum\limits_{i \in \mathcal{R}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{R_f = \Sigma_{i \in R} f (\eta_i) (Z_i + \delta_i)^2,} where \eqn{Z_i \sim N(0,1)}{Z_i ~ N(0,1)}, and only the CDF of \eqn{T_f} is known.
 }
 \details{
 In the genomics literature, SKAT and related methods have limiting distributions of this form.  In the machine learning and kernel methods literature, other popular test statistics share this limiting distribution, among them the Hilbert-Schimidt Information Criterion (HSIC).
