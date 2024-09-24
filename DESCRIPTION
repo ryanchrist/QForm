@@ -1,14 +1,15 @@
 Package: QForm
 Type: Package
-Title: Methods for Bounding P-values and Scalable Screening with Quadratic Forms
+Title: Fast, safe CDF/PDF estimation and bounding for generalized chi-square random varaibles
 Version: 0.2.2
 Authors@R: c(person("Ryan R.", "Christ", email = "ryan.christ@yale.edu",
              role = c("aut","cre"), comment = c(ORCID = "0000-0002-2049-3389")),
              person("Louis J. M.", "Aslett", email = "louis.aslett@durham.ac.uk",
-             role = c("aut"), comment = c(ORCID = "0000-0003-2211-233X")))
+             role = c("aut"), comment = c(ORCID = "0000-0003-2211-233X")),
+             person("David", "Steinsaltz", email = "david.steinsaltz@worc.ox.ac.uk",
+             role = c("ths"), comment = c(ORCID = "0000-0003-3044-5433")))
 Maintainer: Ryan R. Christ <rchrist@wustl.edu>
-Description: QForm provides upper and lower bounds on p-values for test statistics of the form
-    \deqn{\sum\limits_i f\left(\lambda_i\right) \left(Z_i + \delta_i\right)^2}{\Sigma f( \lambda_i ) (Z_i + \delta_i)^2}.
+Description: QForm provides estimates and upper/lower bounds on p-values for test statistics of the form \deqn{\sum\limits_i f\left(\eta_i \right) A_i + \sigma Z_0}{\sum\limits_i f (\eta_i) A_i + \sigma Z_0} where each \eqn{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)}{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)} and \eqn{Z_0 \sim N(0,1)}{Z_0 \sim N(0,1)}, all terms mututally independent.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
