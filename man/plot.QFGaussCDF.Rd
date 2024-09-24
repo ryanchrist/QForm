@@ -7,9 +7,9 @@
 \method{plot}{QFGaussCDF}(x, ...)
 }
 \arguments{
-\item{...}{additional parameters}
+\item{x}{a QFGaussCDF}
 
-\item{cdf}{a QFGaussCDF}
+\item{...}{additional parameters}
 }
 \value{
 There is nothing returned.

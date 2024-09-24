@@ -20,6 +20,7 @@
 #' @param sum.etasq vector; element-wise sum of the \eqn{\eta^2_i} in \eqn{R_f} (see Details)
 #' @param sum.eta.deltasq vector; element-wise sum of the \eqn{\eta_i \delta^2_i} in \eqn{R_f} (see Details)
 #' @param sum.etasq.deltasq vector; element-wise sum of the \eqn{\eta^2_i \delta^2_i} in \eqn{R_f} (see Details)
+#' @param include.saddlepoint **TODO**
 #' @seealso \code{\link{QFGauss}}, \code{\link{TestQFGaussBounds}}
 #' @return A vectorized function which evaluates upper and lower bounds on the CDF of \eqn{Q_f}.
 #'

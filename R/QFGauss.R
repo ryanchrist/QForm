@@ -181,7 +181,7 @@ QFGauss <- function(f.eta, delta2 = rep(0,length(f.eta)),  df = rep(1,length(f.e
 #'
 #' Plots the CDF computed by QFGauss.
 #'
-#' @param cdf a QFGaussCDF
+#' @param x a QFGaussCDF
 #' @param ... additional parameters
 #' @return There is nothing returned.
 #'

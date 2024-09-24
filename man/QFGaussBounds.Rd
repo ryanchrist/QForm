@@ -29,6 +29,8 @@ QFGaussBounds(
 \item{sum.eta.deltasq}{vector; element-wise sum of the \eqn{\eta_i \delta^2_i} in \eqn{R_f} (see Details)}
 
 \item{sum.etasq.deltasq}{vector; element-wise sum of the \eqn{\eta^2_i \delta^2_i} in \eqn{R_f} (see Details)}
+
+\item{include.saddlepoint}{**TODO**}
 }
 \value{
 A vectorized function which evaluates upper and lower bounds on the CDF of \eqn{Q_f}.
