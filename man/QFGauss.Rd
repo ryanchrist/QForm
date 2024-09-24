@@ -60,8 +60,10 @@ plot(cdf)
 
 # Plot computed CDF at desired points
 x <- seq(-1500, 2000, len = 1e3)
-plot(x,cdf(x),type="l", ylab = expression(CDF),xlab=expression(T[f]), main=expression(CDF~of~T[f])) # CDF
-plot(x,cdf(x,density = TRUE),type="l", ylab = expression(PDF),xlab=expression(T[f]), main=expression(PDF~of~T[f])) # PDF
+plot(x, cdf(x), type = "l", ylab = expression(CDF), xlab = expression(T[f]),
+     main = expression(CDF~of~T[f])) # CDF
+plot(x, cdf(x,density = TRUE), type = "l", ylab = expression(PDF),
+     xlab = expression(T[f]), main = expression(PDF~of~T[f])) # PDF
 
 # Compare computed CDF to empirical CDF of target distribution based on 10,000 samples
 TestQFGauss(cdf)

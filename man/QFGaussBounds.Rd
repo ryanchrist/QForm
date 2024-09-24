@@ -67,14 +67,17 @@ xx <- seq(-1e3, 1e3, len = 6)
 system.time(y <- bounds(xx))
 
 x <- seq(-1e3, 1e3, len = 1e3)
-plot(x, cdf(x), type = "l", ylab = expression(CDF),xlab=expression(T[f]), main=expression(Bounds~on~CDF~of~T[f])) # CDF
+plot(x, cdf(x), type = "l", ylab = expression(CDF), xlab = expression(T[f]),
+     main = expression(Bounds~on~CDF~of~T[f])) # CDF
 points(xx, y[,1], col = "blue")
 points(xx, y[,2], col = "red")
 
-# Generate diagnostic plots for bounds (currently TestQFGaussBounds only works for cases where the QFGauss produeced CDF has all df = 1.)
+# Generate diagnostic plots for bounds (currently TestQFGaussBounds only
+# works for cases where the QFGauss produeced CDF has all df = 1.)
 TestQFGaussBounds(QFGauss(c(1,5,-4,-3,10),c(2,-1,4,-5,5)^2),2)
 
-# The function returned by QFGaussBounds can be accelerated by passing it a parallel version of sapply
+# The function returned by QFGaussBounds can be accelerated by passing it a
+# parallel version of sapply.
 # In this example we use only 2 parallel workers but more may be added
 require(future.apply); plan(tweak(multiprocess,workers = 2))
 system.time(y <- bounds(xx, parallel.sapply = future_sapply))
