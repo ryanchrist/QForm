@@ -145,7 +145,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #upper.components[3] <- boole(ep.l,t.cdf$x, conc.ineqs$h2(qu,t.cdf$x)*t.cdf$y) #Boole integral from ep.l to t.cdf$x[n]
-        upper.components[3] <- QForm:::GaussQuadCDF(ep.l, ep.r, F, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
+        upper.components[3] <- GaussQuadCDF(ep.l, ep.r, F, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
 
       }
 
@@ -168,7 +168,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #upper.components[3] <- boole(qu,t.cdf$x, conc.ineqs$h2(qu,t.cdf$x)*t.cdf$y) #Boole integral from qu to t.cdf$x[n]
-        upper.components[3] <- QForm:::GaussQuadCDF(qu-conc.ineqs$c2, ep.r, F, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from qu to t.cdf$x[n]
+        upper.components[3] <- GaussQuadCDF(qu-conc.ineqs$c2, ep.r, F, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from qu to t.cdf$x[n]
 
       }
 
@@ -217,7 +217,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #lower.components[3] <- boole(ep.l,t.cdf$x, conc.ineqs$h1(ql,t.cdf$x)*t.cdf$y) #Boole integral from ep.l to t.cdf$x[n]
-        lower.components[3] <- QForm:::GaussQuadCDF(ep.l, ep.r, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
+        lower.components[3] <- GaussQuadCDF(ep.l, ep.r, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
 
       }
 
@@ -234,7 +234,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #lower.components[3] <- boole(ql,t.cdf$x, conc.ineqs$h1(ql,t.cdf$x)*t.cdf$y,int.to.right = F) #Boole integral from ep.l to t.cdf$x[n]
-        lower.components[3] <- QForm:::GaussQuadCDF(ep.l, ql-conc.ineqs$c1, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to ql
+        lower.components[3] <- GaussQuadCDF(ep.l, ql-conc.ineqs$c1, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to ql
       }
 
       if(ql-conc.ineqs$c1 <= ep.l){
