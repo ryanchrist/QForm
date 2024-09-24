@@ -1,7 +1,6 @@
 #' Fast CDF/PDF of a Quadratic Form in Gaussians
 #'
-#' Returns the CDF and PDF for random variables \eqn{T_f}{T_f} of the form \deqn{T_f = \sum\limits_i f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2 + \sigma Z_0}{T_f = \Sigma_i f (\eta_i) (Z_i + \delta_i)^2 + \sigma Z_0} where \eqn{Z_i \sim N(0,1).}{Z_i ~ N(0,1).}
-#'
+#' Returns the CDF and PDF for the generalized chi-squared distribution. That is, random variables \eqn{T_f}{T_f} of the form \deqn{T_f = \sum\limits_i f\left(\eta_i \right) A_i + \sigma Z_0}{T_f = \Sigma_i f (\eta_i) A_i + \sigma Z_0} where each \eqn{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)}{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)} and \eqn{Z_0 \sim N(0,1)}{Z_0 \sim N(0,1)}, all are mututally independent.
 #' By using the fast Fourier transform and various adjustments for numerical precision, this function is faster and more reliable than Davie's method and related approaches, especially when the returned CDF or PDF is to be evaluated at many points.
 #'
 #' The returned function has three optional, logical arguments.  The first is a \code{density}, which when \code{TRUE}, prompts the function to evaluate the PDF rather than the CDF.  \code{density} defaults to FALSE.  \code{lower.tail} returns 1 minus the CDF when \code{TRUE} (not used if \code{density}==TRUE) and is highly recommended for those interested in the upper tail of \eqn{T_f}.  \code{log.p} returns the desired probabilities in log space.
@@ -20,7 +19,7 @@
 #'
 #' @param f.eta vector; real-valued coefficients, \eqn{f(\eta_i)}, (may be positive or negative)
 #' @param delta2 vector; non-negative real-valued non-centrality parameters for each term (default is 0s). As is standard for chi-squared non-centrality parameters, these are assumed to be already summed across terms when df > 1.
-#' @param df vector; positive real-valued degrees of freedom for each term (default is vector of 1s), can really increase speed if there are many redundant terms
+#' @param df vector; positive real-valued degrees of freedom for each term (represented in equation above as \eqn{a_i}, default is vector of 1s). If many ``redundant'' terms with the same \eqn{f(\eta_i)} and \eqn{\delta_i^2} can be collapsed into a single term by setting the corresponding entries in df > 1, very significant speed increases can be achieved.
 #' @param sigma numeric; standard deviation of optional Gaussian term \eqn{Z_0}, default is 0 (no Gaussian term added)
 #' @param n integer; number of points at which to evaluate the characteristic function of \eqn{T_f}, must be odd (see Details).
 #' @param parallel.sapply function; a user-provided version of \code{sapply}, see Details.

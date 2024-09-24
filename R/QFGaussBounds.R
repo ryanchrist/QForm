@@ -1,7 +1,11 @@
 #' Bounds on the CDF of a Quadratic Form in Gaussians
 #'
-#' Returns a function for calculating upper and lower bounds on the CDF for random variables \eqn{Q_f = T_f + R_f} where \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{T_f = \Sigma_{i \in T} f (\eta_i) (Z_i + \delta_i)^2,}
-#' \deqn{R_f = \sum\limits_{i \in \mathcal{R}} f\left(\eta_i \right) \left(Z_i + \delta_i\right)^2,}{R_f = \Sigma_{i \in R} f (\eta_i) (Z_i + \delta_i)^2,} where \eqn{Z_i \sim N(0,1)}{Z_i ~ N(0,1)}, and only the CDF of \eqn{T_f} is known.
+#' Returns a function for calculating upper and lower bounds on the CDF for random variables \eqn{Q_f = T_f + R_f} where only the CDF of \eqn{T_f} is known. These random variables have the form
+#'
+#' \deqn{T_f = \sum\limits_{i \in \mathcal{T}} f\left(\eta_i \right) A_i + \sigma Z_0}{T_f = \Sigma_{i \in T} f (\eta_i) A_i + \sigma Z_0},
+#' \deqn{R_f = \sum\limits_{i \in \mathcal{R}} f\left(\eta_i \right) A_i}{T_f = \Sigma_{i \in R} f (\eta_i) A_i},
+#' where each \eqn{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)}{A_i \sim \chi^2_{a_i}\left(\delta^2_i\right)} and \eqn{Z_0 \sim N(0,1)}{Z_0 \sim N(0,1)}, all mututally independent,
+#' and \eqn{a_i = 1}{a_i = 1} for all \eqn{i \in \mathcal{R}}{i \in \mathcal{R}}. We aim to remove this final restriction in future work.
 #'
 #' If \code{max.abs.eta} < \code{.Machine$double.eps}, then the contribution of \eqn{R_f} to \eqn{Q_f} is ignored for numerical stability and the function returned is simply wrapper for the provided CDF of \eqn{T_f}.  If this is not desired, a user may want to consider rescaling \eqn{Q_f} to avoid this behavior.
 #' Currently only \eqn{f = "identity"} is supported, but future versions will allow one to select \eqn{f} from a list or specify their own function with its corresponding bounds through a QFormFunction object.
@@ -20,7 +24,7 @@
 #' @param sum.etasq vector; element-wise sum of the \eqn{\eta^2_i} in \eqn{R_f} (see Details)
 #' @param sum.eta.deltasq vector; element-wise sum of the \eqn{\eta_i \delta^2_i} in \eqn{R_f} (see Details)
 #' @param sum.etasq.deltasq vector; element-wise sum of the \eqn{\eta^2_i \delta^2_i} in \eqn{R_f} (see Details)
-#' @param include.saddlepoint **TODO**
+#' @param include.saddlepoint logical; if TRUE also return saddlepoint approximation based estimate of \eqn{Q_f} alongside bounds.  Currently only available when \eqn{f} = "identity." Default is FALSE.
 #' @seealso \code{\link{QFGauss}}, \code{\link{TestQFGaussBounds}}
 #' @return A vectorized function which evaluates upper and lower bounds on the CDF of \eqn{Q_f}.
 #'
@@ -221,7 +225,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #lower.components[3] <- boole(ep.l,t.cdf$x, conc.ineqs$h1(ql,t.cdf$x)*t.cdf$y) #Boole integral from ep.l to t.cdf$x[n]
-        lower.components[3] <- GaussQuadCDF(ep.l, ep.r, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
+        lower.components[3] <- GaussQuadCDF(ep.l, ep.r, TRUE, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to t.cdf$x[n]
 
       }
 
@@ -238,7 +242,7 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
         }
 
         #lower.components[3] <- boole(ql,t.cdf$x, conc.ineqs$h1(ql,t.cdf$x)*t.cdf$y,int.to.right = F) #Boole integral from ep.l to t.cdf$x[n]
-        lower.components[3] <- GaussQuadCDF(ep.l, ql-conc.ineqs$c1, T, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to ql
+        lower.components[3] <- GaussQuadCDF(ep.l, ql-conc.ineqs$c1, TRUE, cdf, ql, qu, conc.ineqs) #Gauss Quad integral from ep.l to ql
       }
 
       if(ql-conc.ineqs$c1 <= ep.l){
