@@ -4,7 +4,7 @@
 ##########################################
 
 #' @importFrom RcppRoll roll_mean roll_sd
-#' @importFrom stats integrate fft dnorm pgamma pnorm sd splinefun uniroot
+#' @importFrom stats integrate fft dnorm pgamma pnorm qnorm qchisq sd splinefun uniroot
 
 calc.R2<-function(yy,xx,interval.length){
 

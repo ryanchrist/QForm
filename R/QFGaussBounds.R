@@ -324,6 +324,8 @@ QFGaussBounds <- function(cdf, f = "identity", max.abs.eta, sum.eta, sum.etasq, 
 #' @seealso \code{\link{QFGaussBounds}}, \code{\link{TestQFGauss}}
 #' @examples
 #' TestQFGaussBounds(QFGauss(c(1,5,-4,-3),c(2,-1,4,-5)^2),2)
+#'
+#' @importFrom graphics par points lines abline
 #' @export
 TestQFGaussBounds <- function(fullcdf, k = min(20,floor(length(attr(fullcdf,"f.eta"))/2)), n.bound.points = 16,
                               lower.tail.end = 20, upper.tail.end = 20, parallel.sapply = base::sapply){

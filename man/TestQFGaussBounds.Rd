@@ -44,6 +44,7 @@ The two bottom plots allow comparison of the empirical CDF (in red) with the com
 }
 \examples{
 TestQFGaussBounds(QFGauss(c(1,5,-4,-3),c(2,-1,4,-5)^2),2)
+
 }
 \seealso{
 \code{\link{QFGaussBounds}}, \code{\link{TestQFGauss}}

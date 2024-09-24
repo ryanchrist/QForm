@@ -56,6 +56,7 @@
 #'
 #'
 #'
+#' @importFrom stats dchisq qchisq pchisq
 #' @export
 QFGauss <- function(f.eta, delta2 = rep(0,length(f.eta)),  df = rep(1,length(f.eta)), sigma = 0, n = 2^16-1, parallel.sapply = base::sapply){
 
@@ -184,6 +185,7 @@ QFGauss <- function(f.eta, delta2 = rep(0,length(f.eta)),  df = rep(1,length(f.e
 #' @param ... additional parameters
 #' @return There is nothing returned.
 #'
+#' @importFrom graphics par
 #' @export
 plot.QFGaussCDF <- function(x,...){
   if(class(x)[1]!="QFGaussCDF"){stop("x must be of class QFGaussCDF")}
@@ -214,6 +216,8 @@ plot.QFGaussCDF <- function(x,...){
 #' @examples
 #' TestQFGauss(QFGauss(c(1,3,4,-3)))
 #'
+#' @importFrom graphics par lines abline
+#' @importFrom stats rchisq rnorm ecdf ks.test
 #' @export
 TestQFGauss <- function(cdf, n.samps = 1e4){
 
