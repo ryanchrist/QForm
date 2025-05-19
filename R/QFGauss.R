@@ -240,6 +240,7 @@ TestQFGauss <- function(cdf, n.samps = 1e4){
   delta2 <- attr(cdf,"delta2")
   df <- attr(cdf,"df")
   sigma <- attr(cdf,"sigma")
+  if(is.null(sigma)){sigma <- 0}
 
   old.par <- par(no.readonly = T)
   par(mfrow=c(2,2))

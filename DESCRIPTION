@@ -1,6 +1,6 @@
 Package: QForm
 Type: Package
-Title: Fast, safe CDF/PDF estimation and bounding for generalized chi-square random varaibles
+Title: Fast, safe CDF and PDF estimation and bounding for generalized chi-square random varaibles and quadratic forms
 Version: 0.2.2
 Authors@R: c(person("Ryan R.", "Christ", email = "ryan.christ@yale.edu",
              role = c("aut","cre"), comment = c(ORCID = "0000-0002-2049-3389")),
